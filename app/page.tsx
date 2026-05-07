@@ -164,7 +164,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="text-sm text-muted-foreground font-mono">STACKS</div>
                 <div className="flex flex-wrap gap-2">
-                  {["C#", "ASP.NET", "TypeScript", "Next.js", "React", "Azure SQL", "PostgreSQL", "AWS EC2", "MongoDB"].map((skill) => (
+                  {[".NET", "C#", "ASP.NET Core", "TypeScript", "Next.js", "React", "Azure & AWS", "SQL & NoSQL", "Python", "FastAPI", "Integração com IA"].map((skill) => (
                     <span
                       key={skill}
                       className="px-2.5 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
@@ -196,14 +196,14 @@ export default function Home() {
                   role: "Desenvolvedor Full Stack",
                   company: "Independente - Definance",
                   description: "Definance é uma plataforma que visa auxiliar as pessoas a gerenciarem suas finanças de forma simples e objetiva.",
-                  tech: ["C#", "ASP.NET", "React", "TypeScript", "Next.js", "Supabase", "AWS EC2", "Google OAuth"],
+                  tech: [".NET", "C#", "ASP.NET", "React", "TypeScript", "Next.js","Python", "FastAPI", "PostgreSQL", "AWS EC2", "AWS S3 Images", "Google OAuth"],
                 },
                 {
                   year: "2026",
                   role: "Desenvolvedor Full Stack",
                   company: "Freelancer - Memoriza",
                   description: "O Memoriza é um e-commerce completo para compra de artigos de papelaria personalizáveis, desenvolvida com foco em produção real.",
-                  tech: ["C#", "ASP.NET", "React", "TypeScript", "Next.js", "Supabase", "AWS EC2", "Mercado Pago API", "Google OAuth"],
+                  tech: [".NET", "C#", "ASP.NET", "React", "TypeScript", "Next.js", "PostgreSQL", "AWS EC2", "AWS S3 Images", "Mercado Pago API", "Google OAuth"],
                 },
                 {
                   year: "2026",
@@ -224,7 +224,7 @@ export default function Home() {
                   role: "Desenvolvedor Full Stack",
                   company: "Acadêmico - Sorriso Harmony",
                   description: "Aplicação web fullstack desenvolvida para a Clínica Odontológica Sorriso Harmony, permitindo que pacientes conheçam os serviços e façam agendamentos",
-                  tech: ["C#", "ASP.NET", "TypeScript", "React", "Next.js", "Tailwind CSS", "Microsoft SQL Azure"],
+                  tech: [".NET", "C#", "ASP.NET", "TypeScript", "React", "Next.js", "Tailwind CSS", "Microsoft SQL Azure"],
                 },
               ].map((job, index) => (
                 <div
@@ -278,7 +278,7 @@ export default function Home() {
           <div className="space-y-8">
             <h2 className="text-3xl sm:text-4xl font-light">Diplomas, Cursos e Certificados</h2>
 
-            <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
               {[
                 {
                   title: "Análise e Desenvolvimento de Sistemas",
@@ -289,6 +289,16 @@ export default function Home() {
                   width: 58,
                   height: 32,
                   certificateUrl: "/puc-diploma.pdf",
+                },
+                {
+                  title: "Projeto Destaque - PUC Minas - Sorriso Harmony",
+                  institution: "PUC Minas",
+                  duration: "2° semestre de 2025",
+                  completionDate: "Dez 2025",
+                  backgroundImage: "/logo-puc.jpg",
+                  width: 58,
+                  height: 32,
+                  certificateUrl: "/projeto-destaque-puc.pdf",
                 },
                 {
                   title: "Python",
@@ -323,7 +333,7 @@ export default function Home() {
               ].map((course, index) => (
                 <div
                   key={index}
-                  className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 h-[200px] transition-all duration-500 hover:shadow-lg hover:border-muted-foreground/50 flex flex-col"
+                  className="group relative overflow-hidden rounded-xl border border-border bg-card p-5 sm:p-6 min-h-[200px] h-full transition-all duration-500 hover:shadow-lg hover:border-muted-foreground/50 flex flex-col"
                 >
                   <div className="space-y-4">
                     <div className="flex justify-between items-start">
@@ -349,7 +359,7 @@ export default function Home() {
                       </span>
                     </div>
 
-                    <h3 className="text-2xl font-medium group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-xl sm:text-2xl font-medium group-hover:text-primary transition-colors duration-300 mt-2 leading-tight">
                       {course.title}
                     </h3>
                   </div>
