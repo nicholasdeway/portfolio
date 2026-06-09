@@ -9,7 +9,7 @@ export const projects: FreelancerProject[] = [
     date: "2026-01-10",
     status: "Ativo",
     tags: ["C#", "ASP.NET", "Next.js", "React", "TypeScript", "PostgreSQL", "AWS EC2", "Google OAuth", "Mercado Pago"],
-    complexity: 100,
+    complexity: 70,
     stack: {
       frontend: ["Next.js", "React", "TypeScript", "Tailwind"],
       backend: ["C#", "ASP.NET Core 8", "Fluent Validation"],
@@ -990,7 +990,7 @@ NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY=
       "Implementar notificação de código de rastreio via e-mail",
     ],
 
-    deployUrl: "https://memoriza-one.vercel.app",
+    deployUrl: "https://memoriza.store",
     repoUrl: "https://github.com/nicholasdeway/memoriza",
   },
   {
@@ -1218,7 +1218,135 @@ NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY=
     deployUrl: "https://www.petergastrobar.com.br",
     repoUrl: "https://github.com/nicholasdeway/peter-gastrobar-landing",
   },
+
+  {
+    slug: "definance",
+    title: "Definance | Gestão Financeira Inteligente",
+    description:
+      "O Definance é uma plataforma inteligente de gestão financeira pessoal integrada ao WhatsApp e Web. Chega de preencher planilhas manuais ou baixar aplicativos complexos: basta enviar uma mensagem de texto ou áudio no WhatsApp para que a IA registre e organize seus gastos, receitas e metas automaticamente, sincronizando tudo em tempo real com um dashboard moderno.",
+    date: "2026-06-09",
+    status: "Ativo",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", ".NET Core", "FastAPI", "OpenAI API", "WhatsApp Integration"],
+    complexity: 95,
+    stack: {
+      frontend: ["Next.js 16", "React 19", "Tailwind CSS 4", "TypeScript", "GSAP", "Framer Motion", "Lenis", "Shadcn UI", "Recharts"],
+      backend: [".NET 8", "C# 12", "ASP.NET Core", "Dapper (Micro-ORM)", "Python 3", "FastAPI", "OpenAI API", "Twilio API"],
+      database: ["PostgreSQL", "Supabase"],
+      infra: ["Docker / Docker-Compose", "Stripe API", "Mercado Pago API", "Vercel", "MailerSend"],
+    },
+    highlights: [
+      "Assistente de IA no WhatsApp (Texto e Áudio)",
+      "Sincronização Bidirecional Contas-Perfil",
+      "Assinaturas Recorrentes Multi-Gateway (Stripe/Mercado Pago)",
+      "Dashboard Financeiro com Gráficos Interativos"
+    ],
+    coverImage: "/logo-definance.png",
+    galleryImages: [
+      { src: "/definance/001 - definance.png", alt: "Tela de proposta comercial do Definance", caption: "Proposta" },
+      { src: "/definance/002 - definance.png", alt: "Integração e conversa com IA via WhatsApp", caption: "Interação com IA via WhatsApp" },
+      { src: "/definance/003 - definance.png", alt: "Funcionalidades principais do sistema", caption: "Funcionalidades" },
+      { src: "/definance/004 - definance.png", alt: "Painel de organização de recursos", caption: "Organização" },
+      { src: "/definance/005 - definance.png", alt: "Mockup de apresentação em dispositivos", caption: "Mockup" },
+      { src: "/definance/006 - definance.png", alt: "Interface de interação com o usuário", caption: "Interação" },
+      { src: "/definance/007 - definance.png", alt: "Página de perguntas frequentes (FAQ)", caption: "FAQ" },
+      { src: "/definance/008 - definance.png", alt: "Planos de assinatura e preços", caption: "Planos" },
+      { src: "/definance/009 - definance.png", alt: "Rodapé da página institucional (Footer)", caption: "Footer" },
+      { src: "/definance/010 - definance.png", alt: "Tela de autenticação e login de usuários", caption: "Autenticação" },
+      { src: "/definance/011 - definance.png", alt: "Tela de expiração do plano trial", caption: "Expiração" },
+      { src: "/definance/012 - definance.png", alt: "Fluxo de vincular número do WhatsApp", caption: "Vincular número" },
+      { src: "/definance/013 - definance.png", alt: "Dashboard financeiro principal", caption: "Dashboard" },
+      { src: "/definance/014 - definance.png", alt: "Histórico de transações detalhado", caption: "Histórico de transações" },
+      { src: "/definance/015 - definance.png", alt: "Painel de metas financeiras", caption: "Metas" },
+      { src: "/definance/016 - definance.png", alt: "Gerenciamento de contas vinculadas", caption: "Minhas Contas" },
+      { src: "/definance/017 - definance.png", alt: "Visualização de categorias financeiras", caption: "Categorias" },
+      { src: "/definance/018 - definance.png", alt: "Relatórios e estatísticas financeiras", caption: "Relatórios" },
+      { src: "/definance/019 - definance.png", alt: "Relatórios e gráficos adicionais", caption: "Relatórios 2" },
+      { src: "/definance/020 - definance.png", alt: "Painel de configurações do sistema", caption: "Configurações do sistema" },
+      { src: "/definance/021 - definance.png", alt: "Opções de exportação de dados", caption: "Exportação de dados" },
+    ],
+
+    summary:
+      "Plataforma inovadora de finanças pessoais que integra um painel de controle web em Next.js a um assistente inteligente conversacional no WhatsApp operado por inteligência artificial (Python/FastAPI) e um backend robusto e escalável em .NET 8.",
+    problemStatement:
+      "A maioria das pessoas falha no controle financeiro pessoal devido à complexidade e atrito de alimentar planilhas ou abrir aplicativos tradicionais todos os dias. O Definance soluciona isso trazendo a conveniência do WhatsApp para o registro instantâneo de transações por voz ou texto, eliminando completamente a fricção diária.",
+    objectives: [
+      "Desenvolver um painel financeiro (Dashboard) moderno e intuitivo para visualização consolidada de receitas, despesas e metas.",
+      "Criar um assistente inteligente integrado ao WhatsApp com capacidade de processamento de linguagem natural (texto e áudio) para comandos financeiros.",
+      "Garantir a sincronização bidirecional em tempo real entre o perfil financeiro do onboarding e a persistência de contas e metas.",
+      "Implementar um sistema de monetização baseado em planos Premium recorrentes, integrando os gateways da Stripe e Mercado Pago com suporte automático a estornos e cancelamentos.",
+      "Assegurar alta performance de leitura e escrita utilizando micro-ORM Dapper sobre banco de dados PostgreSQL hospedado no Supabase."
+    ],
+    targetUsers: "Pessoas que buscam facilidade e rapidez para gerenciar suas contas e economias, preferindo comandos rápidos de conversação (WhatsApp) no dia a dia combinados a uma interface web limpa para análises aprofundadas.",
+    keyFeatures: [
+      "Assistente Financeiro IA (FastAPI + OpenAI + Twilio WhatsApp)",
+      "Sincronização bidirecional inteligente de despesas, rendas e metas",
+      "Checkout Premium Multi-Gateway (Stripe / Mercado Pago)",
+      "Onboarding inteligente e dinâmico (OnboardingWizard)",
+      "Gráficos interativos de categorias e fluxo de caixa (Recharts)",
+      "Arquitetura escalável em C# .NET 8 com Dapper e PostgreSQL (Supabase)"
+    ],
+
+    deployUrl: "https://definance.com.br",
+    repoUrl: "https://github.com/nicholasdeway/definance",
+  },
+
+  {
+    slug: "la-favorita-interior",
+    title: "La Favorita Interior",
+    description:
+      "Landing page institucional premium, moderna e multilíngue desenvolvida para um ateliê de móveis planejados e design de interiores de alto padrão.",
+    date: "2026-06-01",
+    status: "Ativo",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+    complexity: 60,
+    stack: {
+      frontend: ["Next.js 16", "React 19", "Tailwind CSS 4", "Motion", "Lenis", "i18next", "TypeScript"],
+      backend: [],
+      database: [],
+      infra: ["Vercel"],
+    },
+    highlights: ["Suporte Multi-idioma (i18n)", "Animações e Rolagem Fluida", "Galeria de Projetos Categorizada"],
+    coverImage: "/logo-favorita.png",
+    galleryImages: [
+      { src: "/favorita/001 - carrossel.png", alt: "Carrossel principal de apresentação (Hero Slider)", caption: "Hero Slider" },
+      { src: "/favorita/002 - homepage.png", alt: "Seção principal da página inicial", caption: "Página Inicial" },
+      { src: "/favorita/003 - motivo.png", alt: "Seção de diferenciais competitivos e de qualidade", caption: "Diferenciais de Qualidade" },
+      { src: "/favorita/004 - experiência.png", alt: "Painel de métricas e anos de experiência da empresa", caption: "Métricas de Experiência" },
+      { src: "/favorita/005 - projetos.png", alt: "Galeria com portfólio de projetos realizados", caption: "Portfólio de Projetos" },
+      { src: "/favorita/006 - feedback.png", alt: "Seção de avaliações integradas do Google Reviews", caption: "Avaliações do Google" },
+      { src: "/favorita/007 - instagram.png", alt: "Galeria integrada de postagens do Instagram", caption: "Galeria do Instagram" },
+      { src: "/favorita/008 - contato.png", alt: "Formulário de contato e mapa de localização", caption: "Contato e Localização" },
+      { src: "/favorita/009 - sobre.png", alt: "Seção institucional sobre a história da empresa", caption: "Sobre Nós" },
+      { src: "/favorita/010 - meta.png", alt: "Seção de perguntas frequentes (FAQ)", caption: "Perguntas Frequentes" },
+      { src: "/favorita/011 - blog.png", alt: "Feed de posts e artigos do blog", caption: "Feed do Blog" },
+      { src: "/favorita/012 - blog2.png", alt: "Página de visualização interna de artigo do blog", caption: "Página do Artigo" },
+      { src: "/favorita/013 - feedback2.png", alt: "Feedbacks detalhados e depoimentos de clientes", caption: "Feedback de Clientes" },
+    ],
+
+    summary:
+      "Landing page institucional premium com internacionalização (i18n) completa desenvolvida para a La Favorita Interior, empresa líder em fabricação de móveis sob medida, cozinhas premium e closets planejados em Tenerife, Espanha.",
+    problemStatement:
+      "A La Favorita precisava de um website moderno que refletisse a elegância de seus projetos sob medida de alto padrão, além de se comunicar de maneira clara com o público local e turístico em Tenerife através de suporte multi-idiomas.",
+    objectives: [
+      "Desenvolver um portal interativo e responsivo focado na exibição dos projetos e acabamentos exclusivos.",
+      "Implementar internacionalização (i18n) completa em espanhol e inglês para atender tanto residentes quanto o mercado estrangeiro da ilha.",
+      "Criar uma galeria dinâmica com filtros por categoria para segmentar cozinhas, closets, móveis de banheiro e soluções sob medida.",
+      "Otimizar a conversão com pontos estratégicos de contato, formulário de orçamento dinâmico e integração com avaliações do Google."
+    ],
+    targetUsers: "Proprietários de residências em Tenerife interessados em móveis planejados de alta gama, arquitetura de interiores e reformas residenciais exclusivas.",
+    keyFeatures: [
+      "Layout minimalista e elegante com tipografia refinada",
+      "Internacionalização dinâmica utilizando i18next",
+      "Animações premium usando Motion e rolagem de alta performance com Lenis",
+      "Filtros interativos na galeria de portfólio",
+      "Integração visual de depoimentos reais do Google",
+    ],
+
+    deployUrl: "https://landing-favorita.vercel.app",
+    repoUrl: "https://github.com/nicholasdeway/landing-favorita",
+  },
 ]
+
 
 export function getProjectBySlug(slug: string): FreelancerProject | undefined {
   return projects.find((p) => p.slug === slug)
