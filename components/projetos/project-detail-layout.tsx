@@ -12,6 +12,7 @@ import { GalleryModal } from "./gallery-modal"
 import { MermaidDiagram } from "./mermaid-diagram"
 import { TableOfContents } from "./table-of-contents"
 import { DatabaseSchemaViewer } from "./database-schema-viewer"
+import { motion, useScroll, useSpring } from "framer-motion"
 
 const statusColors: Record<string, string> = {
   Ativo: "bg-green-500/10 text-green-500 border-green-500/20",
@@ -47,6 +48,13 @@ export function ProjectDetailLayout({ project }: { project: FreelancerProject })
   const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const sectionsRef = useRef<Record<string, HTMLElement | null>>({})
+
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
 
   useEffect(() => {
     setMounted(true)
@@ -87,6 +95,11 @@ export function ProjectDetailLayout({ project }: { project: FreelancerProject })
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[3px] bg-foreground origin-left z-50"
+        style={{ scaleX }}
+      />
       {/* Header */}
       <header className="border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">

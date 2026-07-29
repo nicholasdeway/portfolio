@@ -5,7 +5,16 @@ import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import { ProjectHubSection } from "@/components/projetos/project-hub-section"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { MapPin } from "lucide-react"
+import { MapPin, User, Briefcase, FolderGit, GraduationCap, Mail } from "lucide-react"
+import { motion } from "framer-motion"
+
+const SECTIONS = [
+  { id: "intro", label: "Intro", icon: User },
+  { id: "experiencia", label: "Experiência", icon: Briefcase },
+  { id: "projetos", label: "Projetos", icon: FolderGit },
+  { id: "cursos", label: "Cursos", icon: GraduationCap },
+  { id: "contato", label: "Contato", icon: Mail },
+]
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("")
@@ -67,17 +76,88 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
+      {/* Desktop Sidebar Navigation */}
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
-        <div className="flex flex-col gap-4">
-          {["intro", "experiencia", "projetos", "cursos", "contato"].map((section) => (
-            <button
-              key={section}
-              onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })}
-              className={`w-2 h-8 rounded-full transition-all duration-500 cursor-pointer ${activeSection === section ? "bg-foreground" : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
-                }`}
-              aria-label={`Navigate to ${section}`}
-            />
-          ))}
+        <div className="relative flex flex-col items-center gap-6 py-4">
+          {/* Continuous thin vertical line */}
+          <div className="absolute top-0 bottom-0 w-[1px] bg-border/40" />
+
+          {SECTIONS.map((section) => {
+            const isActive = activeSection === section.id
+            return (
+              <button
+                key={section.id}
+                onClick={() =>
+                  document
+                    .getElementById(section.id)
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="group relative flex items-center justify-center w-6 h-6 cursor-pointer focus:outline-none"
+                aria-label={`Navegar para ${section.label}`}
+              >
+                {/* Active circle sliding with layoutId */}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeDot"
+                    className="absolute inset-0 rounded-full border border-foreground bg-foreground/5 scale-125"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+
+                {/* Inner dot */}
+                <div
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    isActive
+                      ? "bg-foreground scale-125"
+                      : "bg-muted-foreground/30 group-hover:bg-foreground/75"
+                  }`}
+                />
+
+                {/* Tooltip sliding to the right */}
+                <span className="absolute left-8 px-2 py-1 rounded bg-popover border border-border text-xs font-mono text-popover-foreground whitespace-nowrap opacity-0 -translate-x-2 pointer-events-none transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0 shadow-md">
+                  {section.label}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+      </nav>
+
+      {/* Floating Mobile Bottom Navigation Dock */}
+      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[85%] max-w-sm lg:hidden">
+        <div className="flex justify-around items-center px-4 py-2.5 bg-background/60 backdrop-blur-lg border border-border/50 rounded-full shadow-lg shadow-black/5">
+          {SECTIONS.map((section) => {
+            const isActive = activeSection === section.id
+            const Icon = section.icon
+            return (
+              <button
+                key={section.id}
+                onClick={() =>
+                  document
+                    .getElementById(section.id)
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="relative p-2 rounded-full cursor-pointer focus:outline-none flex items-center justify-center"
+                aria-label={`Navegar para ${section.label}`}
+              >
+                {/* Active indicator background sliding with layoutId */}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeMobileDot"
+                    className="absolute inset-0 rounded-full bg-foreground/10"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                <Icon
+                  className={`w-5 h-5 transition-colors duration-300 ${
+                    isActive
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                />
+              </button>
+            )
+          })}
         </div>
       </nav>
 
