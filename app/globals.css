@@ -144,9 +144,18 @@
 
   ::view-transition-new(root) {
     z-index: 9999;
+    will-change: clip-path;
   }
 
   ::view-transition-old(root) {
     z-index: 1;
+  }
+
+  /* Desativa todas as transições de CSS nos elementos da página durante a view transition */
+  /* para evitar lag de repaint concorrente. Exime o botão de toggle para manter ícones fluídos. */
+  .view-transitioning *:not(.theme-toggle-btn):not(.theme-toggle-btn *) {
+    transition: none !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
   }
 }

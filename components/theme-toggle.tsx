@@ -35,27 +35,41 @@ export function ThemeToggle() {
       Math.max(top, bottom)
     )
 
+    document.documentElement.classList.add("view-transitioning")
+
     const transition = document.startViewTransition(() => {
       flushSync(() => {
         setTheme(newTheme)
       })
     })
 
-    await transition.ready
+    try {
+      await transition.ready
 
-    document.documentElement.animate(
-      {
-        clipPath: [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${maxRadius}px at ${x}px ${y}px)`,
-        ],
-      },
-      {
-        duration: 400,
-        easing: "ease-out",
-        pseudoElement: "::view-transition-new(root)",
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${maxRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 350,
+          easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      )
+
+      if (transition.finished) {
+        await transition.finished
+      } else {
+        await new Promise((resolve) => setTimeout(resolve, 350))
       }
-    )
+    } catch (e) {
+      console.error(e)
+    } finally {
+      document.documentElement.classList.remove("view-transitioning")
+    }
   }
 
   if (!mounted) {
@@ -74,7 +88,7 @@ export function ThemeToggle() {
       variant="outline" 
       size={null} 
       onClick={toggleTheme} 
-      className="group p-3 h-auto w-auto rounded-lg border-border bg-transparent hover:bg-transparent hover:border-muted-foreground/50 transition-all duration-300 relative overflow-hidden"
+      className="group theme-toggle-btn p-3 h-auto w-auto rounded-lg border-border bg-transparent hover:bg-transparent hover:border-muted-foreground/50 transition-all duration-300 relative overflow-hidden cursor-pointer"
     >
       <Sun 
         className={`w-4 h-4 transition-all duration-500 ${

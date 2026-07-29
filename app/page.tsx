@@ -106,11 +106,10 @@ export default function Home() {
 
                 {/* Inner dot */}
                 <div
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    isActive
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${isActive
                       ? "bg-foreground scale-125"
                       : "bg-muted-foreground/30 group-hover:bg-foreground/75"
-                  }`}
+                    }`}
                 />
 
                 {/* Tooltip sliding to the right */}
@@ -149,11 +148,10 @@ export default function Home() {
                   />
                 )}
                 <Icon
-                  className={`w-5 h-5 transition-colors duration-300 ${
-                    isActive
+                  className={`w-5 h-5 transition-colors duration-300 ${isActive
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
-                  }`}
+                    }`}
                 />
               </button>
             )
@@ -206,7 +204,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center gap-1">
                     <MapPin className="hidden sm:block w-5 h-5 text-muted-foreground/30" />
-                    <div>Rio das Ostras RJ - Uberlândia MG - Home Office</div>
+                    <div>Rio das Ostras RJ - Uberlândia MG - São Paulo SP - Home Office</div>
                   </div>
                 </div>
               </div>
